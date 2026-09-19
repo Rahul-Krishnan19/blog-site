@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #4f46e5;
+}
+
+.dark {
+  --background: #0a0a0b;
+  --foreground: #e8e8ea;
+  --muted: #9ca3af;
+  --border: #27272a;
+  --accent: #818cf8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+.prose {
+  --tw-prose-body: var(--color-foreground);
+  --tw-prose-headings: var(--color-foreground);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-foreground);
+  --tw-prose-quotes: var(--color-muted);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+  --tw-prose-code: var(--color-foreground);
+}
+
+.prose a {
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 150ms ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
+.prose :where(code):not(pre code) {
+  background: var(--color-border);
+  padding: 0.15em 0.4em;
+  border-radius: 0.35em;
+  font-weight: 400;
+}
+
+.prose pre {
+  border: 1px solid var(--color-border);
+}
+
+/* GitHub-style alert callouts (remark-github-blockquote-alert) */
+.markdown-alert {
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0;
+  border-left: 3px solid var(--color-border);
+  border-radius: 0.375rem;
+  background: color-mix(in srgb, var(--color-border) 35%, transparent);
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 0.35rem;
+}
+
+.markdown-alert-note {
+  border-left-color: #3b82f6;
+}
+
+.markdown-alert-tip {
+  border-left-color: #22c55e;
+}
+
+.markdown-alert-important {
+  border-left-color: #a855f7;
+}
+
+.markdown-alert-warning {
+  border-left-color: #eab308;
+}
+
+.markdown-alert-caution {
+  border-left-color: #ef4444;
+}
