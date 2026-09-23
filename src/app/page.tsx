@@ -17,10 +17,10 @@ export default async function HomePage() {
   return (
     <main>
       <h1 className="text-2xl font-semibold tracking-tight mb-2">
-        hi, i&apos;m writing here.
+        Welcome to my blog.
       </h1>
       <p className="text-muted mb-12">
-        notes on what I&apos;m building and figuring out.
+        I write about random topics.
       </p>
 
       {posts.length === 0 ? (
